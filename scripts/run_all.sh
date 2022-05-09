@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir -p work
+
 mkdir -p /wd/work/Pre.2966.results.keepboundaries
 /opt/conda/bin/conda run --no-capture-output -n scclust \
     Rscript ./run_mm19_pre_2966.R

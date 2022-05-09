@@ -35,5 +35,4 @@ COPY scripts /scripts
 
 WORKDIR /scripts
 
-
-SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/bin/bash", "/scripts/run_all.sh"]
