@@ -4,7 +4,7 @@ Run following command:
 ```
 docker run -it \
     -v <path to working directory>:/wd \
-    krasnitzlab/p53-loh-nature-paper:1.0.0
+    krasnitzlab/p53-loh-nature-figures:1.0.0
 ```
 
 where you should replace `<path to working directory>` with the
