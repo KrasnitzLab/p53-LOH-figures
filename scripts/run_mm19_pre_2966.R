@@ -1,4 +1,3 @@
-library(testthat)
 library(futile.logger)
 
 library(SCclust)
@@ -19,24 +18,18 @@ result_dir <- file.path(
 #############################################
 #############################################
 
-expect_true(file.exists(result_dir))
-
 # load gc
 gc_filename <- file.path(
     base_dir, "mm9.varbin.gc.content.5k.bowtie.k50.from.uber.txt.gz")
-expect_true(file.exists(gc_filename))
 
 gc_df <-load_table(gc_filename)
 gc_df$chrom.numeric <- chrom_numeric(gc_df$bin.chrom)
-expect_equal(nrow(gc_df), 5000)
 flog.debug("gc columns: %s", colnames(gc_df))
 
 
 uber_seg <- file.path(
     source_data,
     "uber.Pre.Tumor.SPs.Animal.2966.5k.seg.quantal.primary.txt.gz")
-
-expect_true(file.exists(uber_seg))
 
 uber_seg <- load_table(uber_seg)
 
