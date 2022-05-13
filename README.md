@@ -39,3 +39,8 @@ docker run -it --entrypoint "/bin/bash" \
     -v '< path to working directory >':/wd \
     krasnitzlab/p53-loh-nature-figures:1.0.1
 ```
+
+**Reference**
+
+Chorbadjiev L, Kendall J, Alexander J, Zhygulin V, Song J, Wigler M, Krasnitz A. Integrated Computational Pipeline for Single-Cell Genomic Profiling. JCO Clin Cancer Inform. 2020 May;4:464-471. doi: 10.1200/CCI.19.00171. PMID: 32432904; PMCID: PMC7265781.
+
