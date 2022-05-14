@@ -9,13 +9,13 @@ flog.threshold(DEBUG)
 base_dir <- file.path("/data")
 work_dir <- file.path("/wd/work")
 
-source_data <- file.path(base_dir, "Tumor.347")
+source_data <- file.path(base_dir, "KPCLOH.Tumor1.DP.SP")
 
 #############################################
 #############################################
 keepboundaries <- T
 result_dir <- file.path(
-    work_dir, "Tumor.347.results.keepboundaries")
+    work_dir, "KPCLOH.Tumor1.DP.SP.results")
 #############################################
 #############################################
 
@@ -29,7 +29,7 @@ flog.debug("gc columns: %s", colnames(gc_df))
 
 
 uber_seg <- file.path(
-    source_data, "uber.Tumor.347.DP.SP.ALL.5k.seg.quantal.primary.txt.gz")
+    source_data, "KPCLOH.Tumor1.DP.SP.5k.seg.quantal.primary.txt.gz")
 
 uber_seg <- load_table(uber_seg)
 
@@ -93,7 +93,7 @@ subclones <- find_subclones(
 
 flog.debug("find subclones calculation DONE...")
 
-filenames <- case_filenames(result_dir, "tumor.347.result")
+filenames <- case_filenames(result_dir, "KPCLOH.Tumor1.DP.SP.result")
 
 save_table(filenames$cells, data.frame(cell=cells))
 save_table(filenames$seg, uber_seg)

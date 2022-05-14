@@ -2,10 +2,10 @@ all:
 
 
 build:
-	docker build . -t krasnitzlab/p53-loh-nature-figures:latest
-	docker build . -t krasnitzlab/p53-loh-nature-figures:1.0.1
+	docker build . -t krasnitzlab/p53-loh-figures:latest
+	docker build . -t krasnitzlab/p53-loh-figures:1.0.2
 
 
 publish:
-	docker push krasnitzlab/p53-loh-nature-figures:1.0.1
-	docker push krasnitzlab/p53-loh-nature-figures:latest
+	docker push krasnitzlab/p53-loh-figures:1.0.2
+	docker push krasnitzlab/p53-loh-figures:latest

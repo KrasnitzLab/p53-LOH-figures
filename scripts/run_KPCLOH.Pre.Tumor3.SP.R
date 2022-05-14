@@ -1,20 +1,20 @@
 library(futile.logger)
 
 library(SCclust)
-flog.threshold(DEBUG)
 
+flog.threshold(DEBUG)
 
 
 base_dir <- file.path("/data")
 work_dir <- file.path("/wd/work")
 
-source_data <- file.path(base_dir, "Pre.2966")
+source_data <- file.path(base_dir, "KPCLOH.Pre.Tumor3.SP")
 
 #############################################
 #############################################
 keepboundaries <- T
 result_dir <- file.path(
-    work_dir, "Pre.2966.results.keepboundaries")
+    work_dir, "KPCLOH.Pre.Tumor3.SP.results/")
 #############################################
 #############################################
 
@@ -28,8 +28,7 @@ flog.debug("gc columns: %s", colnames(gc_df))
 
 
 uber_seg <- file.path(
-    source_data,
-    "uber.Pre.Tumor.SPs.Animal.2966.5k.seg.quantal.primary.txt.gz")
+    source_data, "KPCLOH.Pre.Tumor3.SP.5k.seg.quantal.primary.txt.gz")
 
 uber_seg <- load_table(uber_seg)
 
@@ -50,7 +49,7 @@ flog.debug("nsim=%s",nsim)
 
 flog.debug("starting sim fisher calculation...")
 fisher <- sim_fisher_wrapper(
-    pinmat_df, pins_df, njobs=30, nsim=nsim, nsweep=10)
+    pinmat_df, pins_df, njobs=30, nsim=nsim)
 true_pv <- fisher$true
 sim_pv <- fisher$sim
 flog.debug("sim fisher calculation DONE...")
@@ -93,7 +92,7 @@ subclones <- find_subclones(
 
 flog.debug("find subclones calculation DONE...")
 
-filenames <- case_filenames(result_dir, "pre.2966.result")
+filenames <- case_filenames(result_dir, "KPCLOH.Pre.Tumor3.SP.result")
 
 save_table(filenames$cells, data.frame(cell=cells))
 save_table(filenames$seg, uber_seg)

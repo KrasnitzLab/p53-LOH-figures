@@ -2,48 +2,55 @@
 
 set -e
 
-mkdir -p work
-
-mkdir -p /wd/work/Pre.2966.results.keepboundaries
-/opt/conda/bin/conda run --no-capture-output -n scclust \
-    Rscript ./run_mm19_pre_2966.R
-
-
-mkdir -p /wd/work/Pre.TWO.results.keepboundaries
-/opt/conda/bin/conda run --no-capture-output -n scclust \
-    Rscript ./run_mm19_pre_two.R
-
-
-mkdir -p /wd/work/Tumor.347.results.keepboundaries
-/opt/conda/bin/conda run --no-capture-output -n scclust \
-    Rscript ./run_mm19_tumor_347.R
-
-
-mkdir -p /wd/work/Tumor.356.results.keepboundaries
-/opt/conda/bin/conda run --no-capture-output -n scclust \
-    Rscript ./run_mm19_tumor_356.R
-
-
 Xvfb :99 &
-
 export DISPLAY=:99
 
+mkdir -p work
+
+
+############################################################
+# process KPCLOH.Pre.Tumor1
+mkdir -p /wd/work/KPCLOH.Pre.Tumor1.SP.results
 /opt/conda/bin/conda run --no-capture-output -n scclust \
-    scgview -d /wd/work/Pre.2966.results.keepboundaries \
-        -o /wd/work/Pre.2966.results.png \
-        -t "Pre.2966" -r 300
+    Rscript ./run_KPCLOH.Pre.Tumor1.SP.R
 
 /opt/conda/bin/conda run --no-capture-output -n scclust \
-    scgview -d /wd/work/Pre.TWO.results.keepboundaries \
-        -o /wd/work/Pre.TWO.results.png \
-        -t "Pre.TWO" -r 300
+    scgview -d /wd/work/KPCLOH.Pre.Tumor1.SP.results \
+        -o /wd/work/KPCLOH.Pre.Tumor1.SP.results.png \
+        -t "KPCLOH.Pre.Tumor1" -r 300
+
+
+############################################################
+# process KPCLOH.Pre.Tumor3
+mkdir -p /wd/work/KPCLOH.Pre.Tumor3.SP.results
+/opt/conda/bin/conda run --no-capture-output -n scclust \
+    Rscript ./run_KPCLOH.Pre.Tumor3.SP.R
 
 /opt/conda/bin/conda run --no-capture-output -n scclust \
-    scgview -d /wd/work/Tumor.347.results.keepboundaries \
-        -o /wd/work/Tumor.347.results.png \
-        -t "Tumor.347" -r 300
+    scgview -d /wd/work/KPCLOH.Pre.Tumor3.SP.results \
+        -o /wd/work/KPCLOH.Pre.Tumor3.SP.results.png \
+        -t "KPCLOH.Pre.Tumor3" -r 300
+
+
+############################################################
+# process KPCLOH.Tumor1
+mkdir -p /wd/work/KPCLOH.Tumor1.DP.SP.results
+/opt/conda/bin/conda run --no-capture-output -n scclust \
+    Rscript ./run_KPCLOH.Tumor1.DP.SP.R
 
 /opt/conda/bin/conda run --no-capture-output -n scclust \
-    scgview -d /wd/work/Tumor.356.results.keepboundaries \
-        -o /wd/work/Tumor.356.results.png \
-        -t "Tumor.356" -r 300
+    scgview -d /wd/work/KPCLOH.Tumor1.DP.SP.results \
+        -o /wd/work/KPCLOH.Tumor1.DP.SP.results.png \
+        -t "KPCLOH.Tumor1" -r 300
+
+
+############################################################
+# process KPCLOH.Tumor2
+mkdir -p /wd/work/KPCLOH.Tumor2.DP.SP.results
+/opt/conda/bin/conda run --no-capture-output -n scclust \
+    Rscript ./run_KPCLOH.Tumor2.DP.SP.R
+
+/opt/conda/bin/conda run --no-capture-output -n scclust \
+    scgview -d /wd/work/KPCLOH.Tumor2.DP.SP.results \
+        -o /wd/work/KPCLOH.Tumor2.DP.SP.results.png \
+        -t "KPCLOH.Tumor2" -r 300

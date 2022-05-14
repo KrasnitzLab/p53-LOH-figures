@@ -4,4 +4,4 @@ export WD=$(pwd)
 
 docker run -it \
     -v ${WD}:/wd \
-    krasnitzlab/p53-loh-nature-figures:1.0.1
+    krasnitzlab/p53-loh-figures:1.0.2
