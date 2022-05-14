@@ -22,7 +22,7 @@ to perform all the analysis:
 ```
 docker run -it \
     -v '< path to working directory >':/wd \
-    krasnitzlab/p53-loh-nature-figures:1.0.1
+    krasnitzlab/p53-loh-figures:1.0.2
 ```
 
 where you should replace **< path to working directory >** with the
@@ -37,7 +37,7 @@ you can instead start the Docker container using the following command:
 ```
 docker run -it --entrypoint "/bin/bash" \
     -v '< path to working directory >':/wd \
-    krasnitzlab/p53-loh-nature-figures:1.0.1
+    krasnitzlab/p53-loh-figures:1.0.2
 ```
 
 **Reference**
